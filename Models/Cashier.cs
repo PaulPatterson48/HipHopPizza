@@ -1,9 +1,9 @@
 ﻿using System;
 namespace HipHopPizzaWings.Models
 {
-	public class HipHopPizza
+	public class Cashier
 	{
-		public HipHopPizza()
+		public Cashier()
 		{
 		}
 	}
