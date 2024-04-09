@@ -9,8 +9,8 @@ namespace HipHopPizzaWings.Models
 		public int ItemId { get; set; }
 		public int OrderId { get; set; }
 
-		public ICollection<Order> Orders { get; set; }
-		public ICollection<Item> Items { get; set; }
+		public ICollection<Order>? Orders { get; set; }
+		public ICollection<Item>? Items { get; set; }
 	}
 }
 

@@ -8,11 +8,11 @@ namespace HipHopPizzaWings.Models
 	{
 		public int Id { get; set; }
 		[Required]
-		public int OrderId { get; set; }
-		public string ItemName { get; set; }
-		public decimal ItemPrice { get; set; }
+		public int? OrderId { get; set; }
+		public string? ItemName { get; set; }
+		public decimal? ItemPrice { get; set; }
 
-		public ICollection<OrderItem> OrderItems { get; set; }
+		public ICollection<OrderItem>? OrderItems { get; set; }
 	}
 
 }
