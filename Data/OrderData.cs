@@ -6,9 +6,9 @@ namespace HipHopPizzaWings.Data
 {
 	public class OrderData
 	{
-		public static List<Order> Orders = new List<Order>
+		public static List<Order> Orders = new List<Order>()
 		{
-			new Order
+			new Order()
 			{
 				Id = 1,
 				IsPhone = true,
@@ -25,7 +25,7 @@ namespace HipHopPizzaWings.Data
 				CashierId = 1
 			},
 
-            new Order
+			new Order()
 			{
 				Id = 2,
 				IsPhone = false,
@@ -41,7 +41,7 @@ namespace HipHopPizzaWings.Data
 				DateCreated = new DateTime(2024, 02, 05),
 				CashierId = 2
 			},
-			new Order
+			new Order()
 			{
 				Id = 3,
 				IsPhone = true,
@@ -57,7 +57,7 @@ namespace HipHopPizzaWings.Data
 				DateCreated = new DateTime(2024, 03, 12),
 				CashierId = 3
 			},
-			new Order
+			new Order()
 			{
 				Id = 4,
 				IsPhone = true,
@@ -73,7 +73,7 @@ namespace HipHopPizzaWings.Data
 				DateCreated = new DateTime(2024, 03, 25),
 				CashierId = 1
 			},
-			new Order
+			new Order()
 			{
 				Id = 5,
 				IsPhone = false,
@@ -89,7 +89,7 @@ namespace HipHopPizzaWings.Data
 				DateCreated = new DateTime(2024, 04, 02),
 				CashierId = 2
 			},
-			new Order
+			new Order()
 			{
 				Id = 6,
 				IsPhone = true,
@@ -106,7 +106,7 @@ namespace HipHopPizzaWings.Data
 				CashierId = 3
 			}
 
-        }
+		};
 
     }
 }
