@@ -15,7 +15,7 @@ namespace HipHopPizzaWings.Models
 		public int? OrderId { get; set; }
 		public decimal? TotalPrice
 		{
-			get; 
+			get; set;
 		}
 		public string? PaymentType { get; set; }
 		public string? OrderStatus { get; set; }
