@@ -11,11 +11,11 @@ namespace HipHopPizzaWings.Models
 		public string? OrderType { get; set; }
 		public string? CustomerName { get; set; }
 		public string? Email { get; set; }
-		public string? PhoneNumber { get; set; }
+		public string? PhoneNumber { get; set; } = "###-###-####";
 		public int? OrderId { get; set; }
 		public decimal? TotalPrice
 		{
-			get; set;
+			get; 
 		}
 		public string? PaymentType { get; set; }
 		public string? OrderStatus { get; set; }
