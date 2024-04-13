@@ -40,6 +40,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 CashierAPI.Map(app);
+ItemsAPI.Map(app);
+OrderTypesAPI.Map(app);
+PaymentTypesAPI.Map(app);
 
 app.Run();
 
