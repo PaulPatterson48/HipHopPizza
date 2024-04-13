@@ -11,6 +11,8 @@ namespace HipHopPizzaWings
 		public DbSet<Order> Orders { get; set; }
 		public DbSet<Item> Items { get; set; }
 		public DbSet<OrderItem> OrderItems { get; set; }
+		public DbSet<OrderType> OrderTypes { get; set; }
+		public DbSet<PaymentType> PaymentTypes { get; set; }
 		public DbSet<Cashier> Cashiers { get; set; }
 
 
@@ -24,6 +26,7 @@ namespace HipHopPizzaWings
 			modelBuilder.Entity<Order>().HasData(OrderData.Orders);
 			modelBuilder.Entity<Item>().HasData(ItemData.Items);
 			modelBuilder.Entity<OrderItem>().HasData(OrderItemData.OrderItems);
+			modelBuilder.Entity<OrderType>().HasData(OrderTypeData.OrderTypes);
 		}
 	}
 }
