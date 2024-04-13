@@ -11,7 +11,7 @@ namespace HipHopPizzaWings.API
 			app.MapGet("/api/OrderTypes", (HipHopPizzaWingsDbContext db) =>
 			{
 				var orderTypes = db.OrderTypes.ToList();
-				return Resuls.ok(orderTypes);
+				return Results.Ok(orderTypes);
 
 			});
 

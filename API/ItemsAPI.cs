@@ -8,15 +8,16 @@ namespace HipHopPizzaWings.API
 	{
 		public static void Map(WebApplication app)
 		{
-			app.MapPost("/newOrder", async (HipHopPizzaWingsDbContext db, OrderItem newOrderItem) =>
+			app.MapPost("/newOrder/{orderId}", async (HipHopPizzaWingsDbContext db, OrderItem newOrderItem) =>
 			{
-				Order order = await db.Orders.FirstOrDefaultAsync(o => o.Id == newOrderItem.OrderId);
+				Order order = await db.Orders.FirstOrDefaultAsync(o => o.Id == newOrderItem.Order.OrderId);
 
 				if (order == null)
 				{
 					return Results.NotFound();
 				}
-				Item item = await db.Items.FirstOrDefaultAsync(i => i.Id == newOrderItem.ItemId);
+
+				Item item = await db.Items.FirstOrDefaultAsync(i => i.Id == newOrderItem.Item.Id);
 
 				if (item == null)
 				{
@@ -30,6 +31,8 @@ namespace HipHopPizzaWings.API
 				};
 
 				db.OrderItems.Add(orderItem);
+				await db.SaveChangesAsync();
+				return Results.Ok();
 			});
 
 			app.MapDelete("/api/items/{orderId}/delete/{itemId}", (HipHopPizzaWingsDbContext db, int orderId, int itemId) =>
