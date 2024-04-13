@@ -8,7 +8,8 @@ namespace HipHopPizzaWings.Models
 	public class PaymentType
 	{
 		public int Id { get; set; }
-		public string Type { get; set; }
+		[Required]
+		public string? Type { get; set; }
 	}
 }
 
