@@ -13,8 +13,7 @@ namespace HipHopPizzaWings.Models
 		public string? Email { get; set; }
 		public string? PhoneNumber { get; set; } = "###-###-####";
 		public int? OrderId { get; set; }
-		public decimal Tip { get; set; }
-		public decimal TotalAndTip => TotalPrice + Tip;
+		public decimal TotalAndTip => TotalPrice + TipAmount;
 		public Order()
 		{
 			Items = new List<OrderItem>();
