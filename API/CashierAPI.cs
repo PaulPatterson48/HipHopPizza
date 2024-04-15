@@ -9,14 +9,7 @@ namespace HipHopPizzaWings.API
 		public static void Map(WebApplication app)
 		{
 			//Create Cashier
-			app.MapPost("/api/createCashier", (HipHopPizzaWingsDbContext db, Cashier newCashier) =>
-			{
-				db.Cashiers.Add(newCashier);
-				db.SaveChanges();
-				return Results.Created($"/api/createCashier/{newCashier.Id}", newCashier);
-			});
-
-			app.MapPost("/api/checkCashier/{uid}", (HipHopPizzaWingsDbContext db, string uid, Cashier newCashiers) =>
+			app.MapPost("/api/checkCashier/{uid}", (HipHopPizzaWingsDbContext db, string uid, Cashier newCashier) =>
 			{
 				Cashier checkCashier = db.Cashiers.FirstOrDefault(cashier => cashier.uid == uid);
 
@@ -25,10 +18,10 @@ namespace HipHopPizzaWings.API
 					return Results.Ok(checkCashier);
 				}
 
-				Cashier newCashier = new Cashier();
-				newCashier.uid = newCashier.uid;
-				newCashier.Name = newCashier.Name;
-				newCashier.email = newCashier.email;
+				Cashier newCashiers = new Cashier();
+				newCashiers.uid = newCashier.uid;
+				newCashiers.Name = newCashier.Name;
+				newCashiers.email = newCashier.email;
 
 				db.Cashiers.Add(newCashier);
 				db.SaveChanges();
