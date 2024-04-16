@@ -7,7 +7,7 @@ namespace HipHopPizzaWings.Data
 {
 	public class CashierData
 	{
-		public static List<Cashier> Cahsiers = new List<Cashier>()
+		public static List<Cashier> Cashiers = new List<Cashier>
 		{
 			new Cashier()
 			{

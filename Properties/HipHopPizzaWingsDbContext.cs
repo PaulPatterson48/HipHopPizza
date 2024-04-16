@@ -28,6 +28,7 @@ namespace HipHopPizzaWings
 			modelBuilder.Entity<OrderItem>().HasData(OrderItemData.OrderItems);
 			modelBuilder.Entity<OrderType>().HasData(OrderTypeData.OrderTypes);
 			modelBuilder.Entity<PaymentType>().HasData(PaymentTypeData.PaymentTypes);
+			modelBuilder.Entity<Cashier>().HasData(CashierData.Cashiers); 
 		}
 	}
 }

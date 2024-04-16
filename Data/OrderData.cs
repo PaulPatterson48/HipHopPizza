@@ -6,7 +6,7 @@ namespace HipHopPizzaWings.Data
 {
 	public class OrderData
 	{
-		public static List<Order> Orders = new List<Order>()
+		public static List<Order> Orders = new List<Order>
 		{
 			new Order()
 			{
