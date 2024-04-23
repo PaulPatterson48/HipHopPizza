@@ -1,5 +1,6 @@
 ﻿using System;
 using HipHopPizzaWings.Models;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace HipHopPizzaWings.API
@@ -28,7 +29,19 @@ namespace HipHopPizzaWings.API
 
 				return Results.Ok(newCashier);
 			
-			}); 
+			});
+			app.MapGet("/cashierCheck/{uid}", (HipHopPizzaWingsDbContext db, string uid) =>
+			{
+				var cashier = db.Cashiers.Where(c => c.uid).ToList();
+				if (uid == null)
+				{
+					return Results.NotFound();
+				}
+				else
+				{
+					return Results.Ok(cashier);
+				}
+			});
 		}
 
 		

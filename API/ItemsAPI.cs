@@ -8,50 +8,22 @@ namespace HipHopPizzaWings.API
 	{
 		public static void Map(WebApplication app)
 		{
-			app.MapPost("/newOrder/{orderId}", async (HipHopPizzaWingsDbContext db, OrderItem newOrderItem) =>
+			app.MapGet("/api/items", (HipHopPizzaWingsDbContext db) =>
 			{
-				Order order = await db.Orders.FirstOrDefaultAsync(o => o.Id == newOrderItem.Order.OrderId);
+				return db.Items.ToList();
+			});
 
-				if (order == null)
-				{
-					return Results.NotFound();
-				}
-
-				Item item = await db.Items.FirstOrDefaultAsync(i => i.Id == newOrderItem.Item.Id);
-
+			app.MapGet("/api/items/{id}", (HipHopPizzaWingsDbContext db, int id) =>
+			{
+				var item = db.Items.FirstOrDefault(i => i.Id == id);
 				if (item == null)
 				{
-					return Results.NotFound();
+					return Results.NotFound("No Item found");
 				}
-
-				OrderItem orderItem = new()
-				{
-					Item = item,
-					Order = order
-				};
-
-				db.OrderItems.Add(orderItem);
-				await db.SaveChangesAsync();
-				return Results.Ok();
-			});
-
-			app.MapDelete("/api/items/{orderId}/delete/{itemId}", (HipHopPizzaWingsDbContext db, int orderId, int itemId) =>
-			{
-				OrderItem orderItemDeleted = db.OrderItems
-											.Where(oitems => oitems.Order.Id == orderId)
-											.Where(oitems => oitems.Item.Id == itemId).FirstOrDefault();
-
-				if (orderItemDeleted == null)
-				{
-					return Results.NotFound();
-				}
-
-				db.OrderItems.Remove(orderItemDeleted);
-				db.SaveChanges();
-				return Results.NoContent();
-
+				return Results.Ok(item); 
 			});
 		}
+			
 	}
 }
 
